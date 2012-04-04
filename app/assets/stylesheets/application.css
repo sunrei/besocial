@@ -11,3 +11,116 @@
  *= require_self
  *= require_tree .
 */
+body{
+    font-family: Arial;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+a{
+    color: #2069b4;
+    text-decoration: underline;
+}
+a:hover{
+    text-decoration: none;
+}
+.wrapper{
+    width: 960px;
+    margin: 0 auto;
+}
+#top_panel{
+    background-color: #2a2e36;
+    border-bottom: 1px solid #fff;
+    height: 50px;
+    text-align: left;
+}
+#header_wrap{
+    border-top: 1px solid #e0e0e1;
+    border-bottom: 1px solid #eeefef;
+}
+#header{
+    height: 66px;
+    background: url("logo.png") no-repeat right center;
+    text-align: left;
+}
+#page_title{
+    float: left;
+    margin-top: 12px;
+    min-height: 41px;
+}
+#page_title.login{
+    padding-left: 50px;
+    background: url("icon-lock.png") no-repeat 0 center;
+}
+#page_title h1{
+    margin: 0;
+    font-weight: normal;
+    font-size: 20px;
+}
+#page_title .hint{
+    color: #9498a1;
+    font-size: 11px;
+    font-weight: bold;
+}
+#footer{
+    color: #b1b3ba;
+    line-height: 20px;
+    padding: 25px 0 20px;
+    font-family: "Trebuchet MS";
+    font-size: 13px;
+}
+#main{
+    background: url("main-bg.png") repeat-x 0 bottom #f8f9fa;
+    border-bottom: 1px solid #e0e0e1;
+    padding-top: 20px;
+}
+#main .wrapper{
+    margin-bottom: 20px;
+}
+
+form#new_user{
+    width: 256px;
+    text-align: left;
+    margin: 0 auto;
+}
+form#new_user label{
+    font-family: Tahoma;
+    font-size: 14px;
+}
+form#new_user input{
+    border: 1px solid #d9dbdd;
+    width: 244px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 20px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-top: 6px;
+    padding: 0 5px;
+}
+form#new_user input[type="checkbox"]{
+    width: auto;
+    height: auto;
+}
+form#new_user input[type="submit"]{
+    border: 0 none;
+    color: #fff;
+    width: auto;
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 33px;
+    line-height:33px;
+    padding: 0 30px 0 10px;
+    cursor: pointer;
+    font-family: Tahoma;
+    font-size: 12px;
+    background: url("submit-arrow.png") no-repeat right center #2069b4;
+}
+form#new_user div{
+    margin-bottom: 10px;
+}
+form#new_user .remember_me label,
+form#new_user .remember_me a{
+    font-size: 11px;
+}

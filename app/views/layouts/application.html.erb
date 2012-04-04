@@ -7,8 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <div id="top_panel">
 
-<%= yield %>
-
+    </div>
+    <div id="header_wrap">
+        <div id="header" class="wrapper">
+            <div id="page_title" class="login">
+                <h1>ВХОД</h1>
+                <div class="hint">Введите ниже учётные данные</div>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div class="wrapper">
+        <%= yield %>
+        </div>
+    </div>
+    <div id="footer">
+         &copy; Copyright 2012 <%= link_to "Rezonans.ru", "http://rezonans.ru" %>. All rights reserved.
+    </div>
 </body>
 </html>
