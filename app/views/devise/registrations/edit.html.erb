@@ -1,44 +1,54 @@
-<%= render "shared/sidebar" %>
-<div id="content" class="content">
-<h1>Редактировать профиль</h1>
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "user_form", :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :nick, "НИК" %><br />
-  <%= f.text_field :nick %></div>
-
-  <div><%= f.label :status, "СТАТУС" %><br />
-  <%= f.text_field :status %></div>
-
-  <div><%= f.label :first_name, "ИМЯ" %><br />
-  <%= f.text_field :first_name %></div>
-
-  <div><%= f.label :last_name, "ФАМИЛИЯ" %><br />
-  <%= f.text_field :last_name %></div>
-
-  <div><label>ПОЛ</label><br />
-    <%= f.radio_button :gender, 0 %>
-    <%= f.label :gender, "Мужской", :class => "gender" %>
-    <%= f.radio_button :gender, 1 %>
-    <%= f.label :gender, "Женский", :class => "gender" %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "user_form", :multipart => true, :method => :put }) do |f| %>
+  <div id="sidebar">
+    <%= image_tag @user.avatar.url(:normal), :class => "avatar" %>
+    <label class="label_avatar">
+    <%= f.file_field :avatar %>
+    </label>
   </div>
+  <div id="content" class="content">
+    <h1>Редактировать профиль</h1>
+    <div class="inner">
+      <%= devise_error_messages! %>
 
-  <div><%= f.label :birthday, "ДЕНЬ РОЖДЕНИЯ" %><br />
-  <%= f.date_select :birthday %></div>
+      <div><%= f.label :nick, "НИК" %><br />
+      <%= f.text_field :nick %></div>
 
-  <div><%= f.label :about, "О СЕБЕ" %><br />
-  <%= f.text_area :about %></div>
+      <div><%= f.label :status, "СТАТУС" %><br />
+      <%= f.text_field :status %></div>
 
-  <div><%= f.label :password, "ПАРОЛЬ" %> <span class="hint">(оставьте пустым если не хотите менять)</span><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+      <div><%= f.label :first_name, "ИМЯ" %><br />
+      <%= f.text_field :first_name %></div>
 
-  <div><%= f.label :password_confirmation, "ПОВТОРИТЕ ПАРОЛЬ" %><br />
-  <%= f.password_field :password_confirmation %></div>
+      <div><%= f.label :last_name, "ФАМИЛИЯ" %><br />
+      <%= f.text_field :last_name %></div>
 
-  <div><%= f.label :current_password, "ТЕКУЩИЙ ПАРОЛЬ" %><br />
-  <%= f.password_field :current_password %></div>
+      <div><label>ПОЛ</label><br />
+        <%= f.radio_button :gender, 0 %>
+        <%= f.label :gender, "Мужской", :class => "gender" %>
+        <%= f.radio_button :gender, 1 %>
+        <%= f.label :gender, "Женский", :class => "gender" %>
+      </div>
 
-  <div><%= f.submit "СОХРАНИТЬ" %></div>
+      <div><%= f.label :birthday, "ДЕНЬ РОЖДЕНИЯ" %><br />
+      <%= f.date_select :birthday %></div>
+
+      <div><%= f.label :about, "О СЕБЕ" %><br />
+      <%= f.text_area :about %></div>
+
+      <div><%= f.label :password, "ПАРОЛЬ" %> <span class="hint">(оставьте пустым если не хотите менять)</span><br />
+      <%= f.password_field :password, :autocomplete => "off" %></div>
+
+      <div><%= f.label :password_confirmation, "ПОВТОРИТЕ ПАРОЛЬ" %><br />
+      <%= f.password_field :password_confirmation %></div>
+
+      <div><%= f.label :current_password, "ТЕКУЩИЙ ПАРОЛЬ" %><br />
+      <%= f.password_field :current_password %></div>
+
+
+
+
+      <div><%= f.submit "СОХРАНИТЬ" %></div>
+
+    </div>
+  </div>
 <% end %>
-
-</div>

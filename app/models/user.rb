@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :nick, :status,
-                  :first_name, :last_name, :gender, :birthday, :about
+                  :first_name, :last_name, :gender, :birthday, :about, :avatar
 
-  validates_uniqueness_of :email
+
 end

@@ -228,6 +228,17 @@ h1{
     font-size: 12px;
     margin-right: 15px;
 }
+.user_form #error_explanation h2{
+    font-weight: normal;
+    font-size: 14px;
+    color: #cf4425;
+    padding-left: 35px;
+    background: url("icon-error.png") no-repeat 0 center;
+}
+.user_form #error_explanation li{
+    color: #cf4425;
+    font-size: 13px;
+}
 
 #sidebar{
     float: left;
@@ -258,18 +269,38 @@ h1{
     line-height: 40px;
     text-transform: uppercase;
 }
+#content .inner{
+    padding: 0 15px;
+}
+#edit_user{
+    width: auto;
+}
+#edit_user input,
+#edit_user textarea{
+    width: 700px;
+}
+#edit_user input[type="radio"],
+#edit_user input[type="submit"]{
+    width: auto;
+}
 
-#content .user_form{
-    margin: 0 25px 0 15px;
-    width: auto;
+.avatar{
+    border: 1px solid #EEEFEF;
 }
-#content .user_form input,
-#content .user_form textarea{
-    width: 100%;
+
+#sidebar .avatar{
+    margin-bottom: 20px;
 }
-#content .user_form input[type="radio"],
-#content .user_form input[type="submit"]{
-    width: auto;
+
+.label_avatar{
+    display: block;
+    overflow: hidden;
+    width: 202px;
+}
+
+.label_avatar input{
+    margin: 0;
+    padding: 0;
 }
 
 #notice{

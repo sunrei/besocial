@@ -14,8 +14,8 @@
   <%= f.password_field :password_confirmation %></div>
 
   <div><label>ПОЛ</label><br />
-  <%= f.radio_button :gender, 0 %>
-    <%= f.label :gender, "Мужской", :class => "gender", :checked => true %>
+  <%= f.radio_button :gender, 0, :checked => true %>
+    <%= f.label :gender, "Мужской", :class => "gender" %>
   <%= f.radio_button :gender, 1 %>
     <%= f.label :gender, "Женский", :class => "gender" %>
   </div>
