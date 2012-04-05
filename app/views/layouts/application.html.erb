@@ -8,18 +8,49 @@
 </head>
 <body>
     <div id="top_panel">
-
+      <div class="wrapper">
+        <% if user_signed_in? %>
+          <%= link_to "Моя страница", root_path, :class => "home" %>
+          <span class="sep"></span>
+          <%= link_to "Профиль", edit_user_registration_path, :class => "profile" %>
+          <%= link_to "Выйти", destroy_user_session_path, :method => :delete, :class => "logout", :confirm => "Вы уверены, что хотите покинуть сайт?" %>
+        <% else %>
+          <%= render "devise/links" %>
+        <% end %>
+      </div>
     </div>
     <div id="header_wrap">
         <div id="header" class="wrapper">
-            <div id="page_title" class="login">
+          <% if user_signed_in? %>
+            <div id="tab_controls">
+              <%= link_to "Моя страница", "#", :class => "tab me active" %>
+              <%= link_to "Пользователи", "#", :class => "tab users" %>
+              <%= link_to "Новости", "#", :class => "tab news" %>
+            </div>
+          <% else %>
+            <% if controller_name == 'sessions' %>
+              <div id="page_title" class="login">
                 <h1>ВХОД</h1>
                 <div class="hint">Введите ниже учётные данные</div>
-            </div>
+              </div>
+            <% end %>
+            <% if controller_name == 'registrations' %>
+              <div id="page_title" class="login">
+                <h1>РЕГИСТРАЦИЯ</h1>
+                <div class="hint">Регистрация пользователя</div>
+              </div>
+            <% end %>
+          <% end %>
         </div>
     </div>
     <div id="main">
         <div class="wrapper">
+          <% if flash[:warning] or flash[:notice] %>
+              <div id="notice" <% if flash[:warning] %>class="warning"<% end %>>
+                <%= flash[:warning] || flash[:notice] %>
+              </div>
+          <% end %>
+
         <%= yield %>
         </div>
     </div>

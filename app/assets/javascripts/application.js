@@ -13,3 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(document).ready(function(){
+    if($("#notice").length > 0){
+        $("#notice").click(function(){
+            $(this).fadeOut(400);
+        });
+        setTimeout('$("#notice").fadeOut(400);', 10000)
+    }
+    $("#tab_controls .tab").click(function(){
+        if(!$(this).hasClass("active")){
+            $("#tab_controls .active").removeClass("active");
+            //TODO: switch tabs
+            $(this).addClass("active");
+        }
+    });
+})
