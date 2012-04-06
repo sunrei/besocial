@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :get_user, :only => [:index, :new]
   #before_filter :accessible_roles, :only => [:new, :edit, :show, :update, :create]
-  load_and_authorize_resource :only => [:show, :new, :destroy, :edit, :update]
+  load_and_authorize_resource :only => [:new, :destroy, :edit, :update]
 
   # GET /users
   # GET /users.xml
@@ -34,6 +34,7 @@ class UsersController < ApplicationController
   # GET /users/1.json                                     HTML AND AJAX
   #-------------------------------------------------------------------
   def show
+    @user = User.find(params[:id])
     respond_to do |format|
       format.json { render :json => @user }
       format.xml  { render :xml => @user }

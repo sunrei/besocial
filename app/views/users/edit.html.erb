@@ -1,9 +1,11 @@
 <%= form_for @user, :html => { :class => "user_form", :id => "edit_user", :multipart => true, :method => :put } do |f| %>
     <div id="sidebar">
       <%= image_tag @user.avatar.url(:normal), :class => "avatar" %>
+      <span class="file-wrapper">
       <label class="label_avatar">
         <%= f.file_field :avatar %>
       </label>
+      </span>
     </div>
     <div id="content" class="content">
       <h1>Редактировать профиль</h1>

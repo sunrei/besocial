@@ -301,7 +301,7 @@ h2{
 #sidebar .avatar{
     margin-bottom: 20px;
 }
-
+/*
 .label_avatar{
     display: block;
     overflow: hidden;
@@ -311,7 +311,7 @@ h2{
 .label_avatar input{
     margin: 0;
     padding: 0;
-}
+}*/
 #users_form{
     margin-bottom: 15px;
 }
