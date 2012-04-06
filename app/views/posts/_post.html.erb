@@ -1,0 +1,11 @@
+<div class="post">
+    <div class="author_avatar">
+        <%= link_to image_tag(post.author.avatar.url(:small), :class => 'avatar'), user_path(post.author.id) %>
+    </div>
+    <div class="post_info">
+        <div class="author_name"><%= post.author.first_name %> <%= post.author.last_name %></div>
+        <div class="post_message">
+            <%= post.message %>
+        </div>
+    </div>
+</div>

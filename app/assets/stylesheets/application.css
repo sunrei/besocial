@@ -451,3 +451,29 @@ h2{
 #info .profile dd{
     margin-left: 140px;
 }
+.post{
+    padding-bottom: 20px;
+    background: url("separator-bg.png") repeat-x 0 bottom;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.post .author_avatar{
+    float: left;
+    width: 52px;
+    height: 52px;
+}
+.post .post_info{
+    margin-left: 62px;
+}
+.post .author_name{
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.new_post{
+    margin-bottom: 15px;
+}
+.new_post textarea{
+    width: 100%;
+}

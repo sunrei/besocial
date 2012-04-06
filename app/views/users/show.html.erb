@@ -23,7 +23,12 @@
   <div class="content">
     <h1>Стена</h1>
     <div class="inner">
-
+        <%= form_tag user_posts_path(@user.id),:class => 'new_post', :multipart => true do |f| %>
+            <%= text_area_tag :message %>
+            <%= submit_tag "Отправить" %>
+        <% end %>
+        
+        <%= render @user.posts %>
     </div>
   </div>
 
