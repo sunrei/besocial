@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
-  has_one :role
+  belongs_to :role
   has_many :wall_entries, :class_name => "Post", :dependent => :destroy
   has_many :posts, :foreign_key => :author_id
 
-  has_attached_file :avatar, :styles => { :normal => "200", :small => "50x50#" }
+  has_attached_file :avatar, :styles => { :normal => "200", :small => "50x50#" }, :default_url => '/assets/missing_:style.jpg'
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -14,5 +14,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :nick, :status,
                   :first_name, :last_name, :gender, :birthday, :about, :avatar
 
+  def admin?
+    self.role && self.role.name == "admin"
+  end
 
 end

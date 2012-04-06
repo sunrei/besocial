@@ -9,14 +9,14 @@
 </div>
 <div id="content">
   <div id="info" class="content inner">
-    <h2>Сиренко Андрей</h2>
+    <h2><%= @user.last_name %> <%= @user.first_name %></h2>
     <div class="status">
       <%= @user.status %>
     </div>
     <div class="sep"></div>
     <dl class="profile">
       <dt>День рождения:</dt><dd><%= @user.birthday %></dd>
-      <dt>Пол:</dt><dd><%= @user.gender ? "Женский" : "Мужской" %></dd>
+      <dt>Пол:</dt><dd><%= @user.gender ? "Мужской" : "Женский" %></dd>
       <dt>О себе:</dt><dd><%= @user.about %></dd>
     </dl>
   </div>

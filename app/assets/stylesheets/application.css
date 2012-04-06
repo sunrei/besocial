@@ -386,6 +386,7 @@ h2{
     color: #666;
     font-size: 13px;
     background-color: #ABFF05;
+    margin-bottom: 15px;
     border: 1px solid #39A00C;
 }
 #info h2{
@@ -405,6 +406,7 @@ h2{
 }
 #info .profile dt{
     float: left;
+    clear: left;
     width: 130px;
     color: #777;
 }

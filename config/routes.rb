@@ -1,7 +1,8 @@
 Besocial::Application.routes.draw do
   devise_for :users
 
-  get "users" => 'home#users'
+  resources :users
+
   get "news" => 'home#news'
 
   # The priority is based upon order of creation:
