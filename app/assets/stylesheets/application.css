@@ -312,6 +312,44 @@ h2{
     margin: 0;
     padding: 0;
 }*/
+.file-wrapper {
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+}
+.file-wrapper .button {
+    background: url("icon-pencil.png") no-repeat scroll right center #2069B4;
+    border: 0 none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Tahoma;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    height: 33px;
+    line-height: 33px;
+    padding: 0 35px 0 10px;
+    text-transform: uppercase;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.file-wrapper input {
+    cursor: pointer;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 100px;
+    filter: alpha(opacity=1);
+    -moz-opacity: 0.01;
+    opacity: 0.01;
+}
+#edit_user input[type="file"]{
+    width: auto;
+    margin: 0;
+}
 #users_form{
     margin-bottom: 15px;
 }
