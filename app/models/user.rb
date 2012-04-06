@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_one :role
+  has_many :wall_entries, :class_name => "Post", :dependent => :destroy
+  has_many :posts, :foreign_key => :author_id
 
   has_attached_file :avatar, :styles => { :normal => "200", :small => "50x50#" }
 
