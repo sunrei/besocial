@@ -23,9 +23,9 @@
         <div id="header" class="wrapper">
           <% if user_signed_in? %>
             <div id="tab_controls">
-              <%= link_to "Моя страница", "#", :class => "tab me active" %>
-              <%= link_to "Пользователи", "#", :class => "tab users" %>
-              <%= link_to "Новости", "#", :class => "tab news" %>
+              <%= link_to "Моя страница", root_path, :class => "tab me"+((controller_name == 'home' && action_name == "index") ? " active":"") %>
+              <%= link_to "Пользователи", users_path, :class => "tab users"+((controller_name == 'home' && action_name == "users") ? " active":"") %>
+              <%= link_to "Новости", news_path, :class => "tab news"+((controller_name == 'home' && action_name == "news") ? " active":"") %>
             </div>
           <% else %>
             <% if controller_name == 'sessions' %>

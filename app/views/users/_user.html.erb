@@ -1,0 +1,11 @@
+<tr>
+  <td class="check"><%= check_box_tag :user, user.id, false, :id => nil %></td>
+  <td class="nick"><%= image_tag user.avatar.url(:small), :class => "avatar" %><%= user.last_name + " " + user.first_name %></td>
+  <td>
+    <%= user.last_sign_in_at %>
+    <div class="actions">
+      <%=  link_to "", "#", :class => "action_edit" %>
+      <%=  link_to "", "#", :class => "action_delete" %>
+    </div>
+  </td>
+</tr>

@@ -33,13 +33,13 @@ ActiveRecord::Schema.define(:version => 20120405000727) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.integer  "role_id"
-    t.string   "nick"
-    t.string   "status"
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "nick",                   :default => "", :null => false
+    t.string   "status",                 :default => "", :null => false
+    t.string   "first_name",             :default => "", :null => false
+    t.string   "last_name",              :default => "", :null => false
     t.boolean  "gender"
     t.date     "birthday"
-    t.text     "about"
+    t.text     "about",                  :default => "", :null => false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
