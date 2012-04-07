@@ -23,9 +23,9 @@
           <%= f.text_field :last_name %></div>
 
         <div><label>ПОЛ</label><br />
-          <%= f.radio_button :gender, 0 %>
+          <%= f.radio_button :gender, true %>
           <%= f.label :gender, "Мужской", :class => "gender" %>
-          <%= f.radio_button :gender, 1 %>
+          <%= f.radio_button :gender, false %>
           <%= f.label :gender, "Женский", :class => "gender" %>
         </div>
 
