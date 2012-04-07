@@ -40,9 +40,6 @@ class UsersController < ApplicationController
       format.xml  { render :xml => @user }
       format.html
     end
-
-  rescue ActiveRecord::RecordNotFound
-    respond_to_not_found(:json, :xml, :html)
   end
 
   # GET /users/1/edit
@@ -56,9 +53,6 @@ class UsersController < ApplicationController
       format.xml  { render :xml => @user }
       format.html
     end
-
-  rescue ActiveRecord::RecordNotFound
-    respond_to_not_found(:json, :xml, :html)
   end
 
   # DELETE /users/1
@@ -117,9 +111,35 @@ class UsersController < ApplicationController
         format.html { render :action => :edit, :status => :unprocessable_entity }
       end
     end
+  end
 
-  rescue ActiveRecord::RecordNotFound
-    respond_to_not_found(:js, :xml, :html)
+  def subscribe
+    if current_user.id == params[:id]
+      redirect_to user_path(params[:id]), :notice => "You cannot subsribe to yourself"
+    else
+      @subscription = current_user.subscriptions.build(:leader_id => params[:id])
+      if @subscription.save
+        flash[:notice] = "You have successfully subscribed to this user."
+        redirect_to user_path(params[:id])
+      else
+        flash[:error] = "Unable to subscribe."
+        redirect_to user_path(params[:id])
+      end
+    end
+  end
+
+
+  def unsubscribe
+    subscription = current_user.subscriptions.find_by_leader_id(params[:id])
+    if !subscription
+      redirect_to user_path(params[:id]), :notice => "You are not subscribed to this user"
+    elsif subscription.destroy
+      flash[:notice] = "You have unsubscribed."
+      redirect_to user_path(params[:id])
+    else
+      flash[:error] = "Unable to unsubscribe."
+      redirect_to user_path(params[:id])
+    end
   end
 
   private

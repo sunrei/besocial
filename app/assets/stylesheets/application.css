@@ -33,6 +33,16 @@ h2{
     font-weight: bold;
     font-size: 18px;
 }
+p{
+    margin: 0 0 15px;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    list-style-type: none;
+}
 .wrapper{
     width: 960px;
     margin: 0 auto;
@@ -279,7 +289,7 @@ h2{
     line-height: 40px;
     text-transform: uppercase;
 }
-#content .inner{
+.inner{
     padding: 15px 15px 0;
 }
 #edit_user{
@@ -476,4 +486,22 @@ h2{
 }
 .new_post textarea{
     width: 100%;
+}
+#followers li{
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+#followers .avatar{
+    float: left;
+    margin: 0;
+}
+#followers .name{
+    margin-left: 60px;
+    min-height: 52px;
+}
+#followers .name a{
+    vertical-align: middle;
+    display: table-cell;
+    height: 52px;
+    text-decoration: none;
 }

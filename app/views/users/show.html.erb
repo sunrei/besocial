@@ -1,10 +1,28 @@
 <div id="sidebar">
   <%= image_tag @user.avatar.url(:normal), :class => "avatar" %>
+  <% if @user.id == current_user.id %>
+      test
+  <% else %>
+      <% if current_user.subscribed_to?(@user.id) %>
+          <%= button_to 'Отписаться', unsubscribe_user_path(@user) %>
+      <% else %>
+          <%= button_to 'Подписаться', subscribe_user_path(@user) %>
+      <% end %>
+  <% end %>
   <h2>Подписчики</h2>
   <div class="content inner">
-    <ul id="followers">
-
-    </ul>
+    <% if @user.followers.count > 0 %>
+      <ul id="followers">
+        <% @user.followers.each do |follower| %>
+          <li>
+            <%= link_to image_tag(follower.avatar.url(:small), :class => 'avatar'), user_path(@user) %>
+            <div class="name"><%= link_to follower.name, user_path(@user) %></div>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>This user has no subscribers.</p>
+    <% end %>
   </div>
 </div>
 <div id="content">
@@ -15,7 +33,7 @@
     </div>
     <div class="sep"></div>
     <dl class="profile">
-      <dt>День рождения:</dt><dd><%= @user.birthday %></dd>
+      <dt>День рождения:</dt><dd><%= @user.birthday ? @user.birthday : "не указан" %></dd>
       <dt>Пол:</dt><dd><%= @user.gender ? "Мужской" : "Женский" %></dd>
       <dt>О себе:</dt><dd><%= @user.about %></dd>
     </dl>
@@ -23,12 +41,12 @@
   <div class="content">
     <h1>Стена</h1>
     <div class="inner">
-        <%= form_tag user_posts_path(@user.id),:class => 'new_post', :multipart => true do |f| %>
+        <%= form_tag user_posts_path(@user),:class => 'new_post' do |f| %>
             <%= text_area_tag :message %>
             <%= submit_tag "Отправить" %>
         <% end %>
         
-        <%= render @user.posts %>
+        <%= render @user.wall_entries %>
     </div>
   </div>
 

@@ -3,6 +3,8 @@ Besocial::Application.routes.draw do
 
   resources :users do
      resources :posts
+     post 'subscribe', :on => :member
+     post 'unsubscribe', :on => :member
   end
 
   get "news" => 'home#news'
