@@ -3,15 +3,14 @@ class ApplicationController < ActionController::Base
 
   before_filter :authenticate_user!
 
-  rescue_from CanCan::AccessDenied, :with => :redirect_denied
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = exception.message
+    redirect_to root_url
+  end
   rescue_from ActiveRecord::RecordNotFound, :with => :redirect_home
-  #rescue_from ActionController::RoutingError, :with => :render_404
+  rescue_from ActionController::RoutingError, :with => :render_404
 
   private
-
-  def redirect_denied
-    redirect_to root_path, :notice => "You are not authorized to access this page."
-    end
 
   def redirect_home
     redirect_to root_path, :notice => "Record not found"

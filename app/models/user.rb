@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :subscribers, :class_name => 'Subscription', :foreign_key => 'leader_id'
   has_many :followers, :through => :subscribers, :source => :user
 
+  has_many :news, :through => :leaders, :source => :posts
+
   has_attached_file :avatar, :styles => { :normal => "200", :small => "50x50#" }, :default_url => '/assets/missing_:style.jpg'
 
   # Include default devise modules. Others available are:
@@ -30,4 +32,8 @@ class User < ActiveRecord::Base
   def subscribed_to?(user_id)
     self.leaders.exists?(user_id)
   end
+
+  #def news
+    #self.leaders.posts
+  #end
 end
