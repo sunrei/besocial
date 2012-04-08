@@ -12,7 +12,7 @@
  *= require_tree .
 */
 body{
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     font-size: 13px;
     text-align: center;
     padding: 0;
@@ -447,13 +447,15 @@ ul li{
     line-height: 35px;
     height: 35px;
     cursor: pointer;
-    display: inline-block;
+    display: block;
     padding: 0 20px;
-    color: #666;
-    font-size: 13px;
-    background-color: #ABFF05;
     margin-bottom: 15px;
-    border: 1px solid #39A00C;
+    color: #06B71C;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #DEFF99;
+    margin-bottom: 15px;
+    border: 2px solid #C4EA58;
 }
 #info h2{
     margin-bottom: 2px;
