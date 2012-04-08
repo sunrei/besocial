@@ -257,11 +257,15 @@ ul li{
     font-size: 14px;
     color: #cf4425;
     padding-left: 35px;
-    background: url("icon-error.png") no-repeat 0 center;
+    background: url("icon-error.png") no-repeat 9px center;
+}
+.user_form #error_explanation ul{
+    padding-left: 35px;
 }
 .user_form #error_explanation li{
     color: #cf4425;
     font-size: 13px;
+    list-style-type: disc;
 }
 
 #sidebar{
