@@ -1,0 +1,10 @@
+<div class="comment">
+  <div class="author_avatar">
+    <%= link_to image_tag(comment.user.avatar.url(:small), :class => 'avatar'), user_path(comment.user_id) %>
+  </div>
+  <div class="comment_info">
+    <div class="author_name"><%= comment.user.name %></div>
+    <div class="message"><%= comment.comment %></div>
+    <div class="time"><%= comment.created_at.strftime("%-d %b в %H:%M") %></div>
+  </div>
+</div>

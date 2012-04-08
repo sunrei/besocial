@@ -8,5 +8,10 @@
             <%= post.message %>
             <%= render post.pictures %>
         </div>
+        <%= render post.comments %>
+        <%= form_tag post_comments_path(post.id), :class => 'comment_form' do |f| %>
+            <%= text_area_tag :comment, '', :size => '78x2' %>
+            <%= submit_tag "Комментировать", :class => 'button' %>
+        <% end %>
     </div>
 </div>

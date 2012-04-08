@@ -501,6 +501,7 @@ ul li{
     height: 37px;
     border: 1px solid #d9dbdd;
     padding: 2px 135px 2px 2px;
+    border-radius: 3px;
 }
 .new_post .file-wrapper{
     position: absolute;
@@ -527,4 +528,34 @@ ul li{
     display: table-cell;
     height: 52px;
     text-decoration: none;
+}
+
+.comment{
+    margin-top: 10px;
+    padding-bottom: 15px;
+    overflow: hidden;
+    background: url("separator-bg.png") repeat-x 0 bottom;
+}
+.comment_form{
+    margin-top: 10px;
+    text-align: right;
+}
+.comment_form .button{
+    line-height: 27px;
+    height: 27px;
+    font-size: 11px;
+}
+.comment .comment_info{
+    margin-left: 62px;
+}
+.comment .time{
+    color: #b1b3ba;
+    font-size: 11px;
+    margin-top: 5px;
+}
+.comment_form textarea{
+    border: 1px solid #d9dbdd;
+    padding: 2px;
+    width: 645px;
+    border-radius: 3px;
 }

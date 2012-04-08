@@ -7,6 +7,8 @@ Besocial::Application.routes.draw do
      post 'unsubscribe', :on => :member
   end
 
+  post 'posts/:id/comments' => 'comments#create', :as => :post_comments
+
   get "news" => 'home#news'
 
   # The priority is based upon order of creation:
