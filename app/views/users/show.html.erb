@@ -31,7 +31,7 @@
     </div>
     <div class="sep"></div>
     <dl class="profile">
-      <dt>День рождения:</dt><dd><%= @user.birthday ? @user.birthday : "не указан" %></dd>
+      <dt>День рождения:</dt><dd><%= @user.birthday ? @user.birthday.strftime("%-d %B %Y") : "не указан" %></dd>
       <dt>Пол:</dt><dd><%= @user.gender ? "Мужской" : "Женский" %></dd>
       <dt>О себе:</dt><dd><%= @user.about %></dd>
     </dl>

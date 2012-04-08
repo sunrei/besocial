@@ -30,7 +30,7 @@
         </div>
 
         <div class="field"><%= f.label :birthday, "День рождения" %>
-          <%= f.date_select :birthday %></div>
+          <%= f.date_select :birthday, :start_year => 1930, :end_year => (Time.now.year - 5) %></div>
 
         <div class="field"><%= f.label :about, "О себе" %>
           <%= f.text_area :about %></div>
