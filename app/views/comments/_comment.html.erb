@@ -3,8 +3,13 @@
     <%= link_to image_tag(comment.user.avatar.url(:small), :class => 'avatar'), user_path(comment.user_id) %>
   </div>
   <div class="comment_info">
-    <div class="author_name"><%= comment.user.name %></div>
+    <div class="author_name"><%= link_to comment.user.name, user_path(comment.user_id) %></div>
     <div class="message"><%= comment.comment %></div>
-    <div class="time"><%= comment.created_at.strftime("%-d %b в %H:%M") %></div>
+    <div class="time">
+      <%= comment.created_at.strftime("%-d %b в %H:%M") %>
+      <% if can? :delete, comment %>
+          | <%= link_to "Удалить комментарий", post_comment_path(comment.post_id, comment.id), :method => :delete %>
+      <% end %>
+    </div>
   </div>
 </div>

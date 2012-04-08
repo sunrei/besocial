@@ -3,10 +3,16 @@
         <%= link_to image_tag(post.author.avatar.url(:small), :class => 'avatar'), user_path(post.author.id) %>
     </div>
     <div class="post_info">
-        <div class="author_name"><%= post.author.first_name %> <%= post.author.last_name %></div>
+        <div class="author_name"><%= link_to post.author.name, user_path(post.author_id) %></div>
         <div class="post_message">
             <%= post.message %>
             <%= render post.pictures %>
+        </div>
+        <div class="time">
+          <%= post.updated_at.strftime("%-d %b в %H:%M") %>
+          <% if can? :delete, post %>
+          | <%= link_to "Удалить запись", user_post_path(post.user.id, post.id), :method => :delete %>
+          <% end %>
         </div>
         <%= render post.comments %>
         <%= form_tag post_comments_path(post.id), :class => 'comment_form' do |f| %>

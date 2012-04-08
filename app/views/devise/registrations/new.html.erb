@@ -1,24 +1,24 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "user_form"}) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :nick, "ИМЯ НА САЙТЕ" %><br />
+  <div class="field"><%= f.label :nick, "Имя на сайте" %>
   <%= f.text_field :nick %></div>
 
-  <div><%= f.label :email, "EMAIL" %><br />
+  <div class="field"><%= f.label :email, "Email" %>
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password, "ПАРОЛЬ" %><br />
+  <div class="field"><%= f.label :password, "Пароль" %>
   <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation, "ПОВТОРИТЕ" %><br />
+  <div class="field"><%= f.label :password_confirmation, "Повторите" %>
   <%= f.password_field :password_confirmation %></div>
 
-  <div><label>ПОЛ</label><br />
+  <div class="field"><label>ПОЛ</label>
   <%= f.radio_button :gender, true, :checked => true %>
     <%= f.label :gender, "Мужской", :class => "gender" %>
   <%= f.radio_button :gender, false %>
     <%= f.label :gender, "Женский", :class => "gender" %>
   </div>
 
-  <div><%= f.submit "Зарегистрироваться" %></div>
+  <div class="field"><%= f.submit "Зарегистрироваться", :class => 'button' %></div>
 <% end %>

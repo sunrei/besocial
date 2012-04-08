@@ -12,4 +12,16 @@ class CommentsController < ApplicationController
       render :template => "users/show"
     end
   end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    authorize! :delete, @comment
+    @comment.destroy
+
+    respond_to do |format|
+      format.json { respond_to_destroy(:ajax) }
+      format.xml  { head :ok }
+      format.html { redirect_to user_path(@comment.post.user_id), :notice => "Comment was successfully deleted!" }
+    end
+  end
 end

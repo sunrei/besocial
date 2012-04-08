@@ -7,7 +7,8 @@ Besocial::Application.routes.draw do
      post 'unsubscribe', :on => :member
   end
 
-  post 'posts/:id/comments' => 'comments#create', :as => :post_comments
+  post    'posts/:id/comments' => 'comments#create', :as => :post_comments
+  delete  'posts/:post_id/comments/:id' => 'comments#destroy', :as => :post_comment
 
   get "news" => 'home#news'
 

@@ -12,7 +12,7 @@
  *= require_tree .
 */
 body{
-    font-family: Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 13px;
     text-align: center;
     padding: 0;
@@ -21,10 +21,13 @@ body{
 a{
     color: #2069b4;
     outline: none;
-    text-decoration: underline;
+    text-decoration: none;
 }
 a:hover{
-    text-decoration: none;
+    text-decoration: underline;
+}
+img{
+    border: 0 none;
 }
 h1,h2{
     margin: 0 0 15px;
@@ -159,8 +162,13 @@ ul li{
     color: #b1b3ba;
     line-height: 20px;
     padding: 25px 0 20px;
-    font-family: "Trebuchet MS";
     font-size: 13px;
+}
+#footer a{
+    text-decoration: underline;
+}
+#footer a:hover{
+    text-decoration: none;
 }
 #main{
     background: url("main-bg.png") repeat-x 0 bottom #f8f9fa;
@@ -179,7 +187,9 @@ ul li{
     margin: 0 auto;
 }
 .user_form label{
-    font-family: Tahoma;
+    font-family: Tahoma, Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    display: block;
     font-size: 14px;
 }
 .user_form input{
@@ -223,26 +233,24 @@ ul li{
 }
 
 .user_form input[type="submit"]{
-    border: 0 none;
-    color: #fff;
-    width: auto;
-    text-transform: uppercase;
-    font-weight: bold;
-    height: 33px;
-    line-height:33px;
-    padding: 0 30px 0 10px;
-    cursor: pointer;
-    font-family: Tahoma;
     font-size: 12px;
-    background: url("submit-arrow.png") no-repeat right center #2069b4;
+    padding: 0 30px 0 10px;
+    width: auto;
+    background-image: url("submit-arrow.png");
+    border: 0 none;
 }
-.user_form div{
+.user_form .field{
     margin-bottom: 10px;
 }
 .user_form .hint{
     font-style: italic;
     font-size: 12px;
+    text-transform: none;
     color: #C3C5C6;
+}
+.user_form .remember_me label{
+    text-transform: none;
+    display: inline;
 }
 .user_form .remember_me label,
 .user_form .remember_me a{
@@ -251,6 +259,11 @@ ul li{
 .user_form label.gender{
     font-size: 12px;
     margin-right: 15px;
+    text-transform: none;
+    display: inline;
+}
+.user_form #error_explanation{
+    margin-bottom: 10px;
 }
 .user_form #error_explanation h2{
     font-weight: normal;
@@ -322,17 +335,6 @@ ul li{
 #sidebar .avatar{
     margin-bottom: 20px;
 }
-/*
-.label_avatar{
-    display: block;
-    overflow: hidden;
-    width: 202px;
-}
-
-.label_avatar input{
-    margin: 0;
-    padding: 0;
-}*/
 .file-wrapper {
     cursor: pointer;
     display: inline-block;
@@ -343,12 +345,15 @@ ul li{
     border: 0 none;
     color: #FFFFFF;
     cursor: pointer;
-    font-family: Tahoma, sans-serif;
+    font-family: Tahoma, Helvetica, Arial, sans-serif;
     font-size: 12px;
     font-weight: bold;
     display: inline-block;
     height: 33px;
     background-color: #2069B4;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: right center;
     line-height: 33px;
     padding: 0 10px;
     text-transform: uppercase;
@@ -356,12 +361,15 @@ ul li{
     -webkit-border-radius: 3px;
     border-radius: 3px;
 }
+.button:hover {
+    background-color: #3170C5;
+}
 #sidebar form{
     margin-bottom: 15px;
 }
 .file-wrapper .button {
     padding-right: 35px;
-    background: url("icon-pencil.png") no-repeat scroll right center #2069B4;
+    background-image: url("icon-pencil.png");
 }
 .file-wrapper input {
     cursor: pointer;
@@ -427,21 +435,10 @@ ul li{
     height: 15px;
 }
 #users_form input[type="submit"]{
-    border: 0 none;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: bold;
     height: 27px;
     line-height:27px;
-    padding: 0 10px;
     margin-left: 5px;
-    cursor: pointer;
-    font-family: Tahoma;
     font-size: 11px;
-    background-color: #2069b4;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
 }
 #notice{
     line-height: 35px;
@@ -515,6 +512,7 @@ ul li{
     border: 1px solid #d9dbdd;
     padding: 2px 135px 2px 2px;
     border-radius: 3px;
+    margin-bottom: 5px;
 }
 .new_post .file-wrapper{
     position: absolute;
@@ -561,16 +559,27 @@ ul li{
 .comment .comment_info{
     margin-left: 62px;
 }
-.comment .time{
+.post .time{
     color: #b1b3ba;
     font-size: 11px;
     margin-top: 5px;
 }
+.post_info > .time{
+    border-bottom: 1px solid #D9DBDD;
+    padding-bottom: 5px;
+}
+
 .comment_form textarea{
     border: 1px solid #d9dbdd;
     padding: 2px;
     width: 645px;
     border-radius: 3px;
+    line-height: 16px;
+    height: 32px;
+    margin-bottom: 5px;
+}
+.news .comment_form textarea{
+    width: 860px;
 }
 #users_form .pagination{
     float: right;

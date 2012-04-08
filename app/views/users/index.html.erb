@@ -16,7 +16,7 @@
         </table>
         <%= will_paginate @users %>
         Выбранные: <%= select_tag "action", "<option>Выберите действие</option>".html_safe %>
-        <%= submit_tag "Применить выбранное" %>
+        <%= submit_tag "Применить выбранное", :class => 'button' %>
     <% end %>
   </div>
 </div>
