@@ -1,12 +1,10 @@
 <div id="sidebar">
   <%= image_tag @user.avatar.url(:normal), :class => "avatar" %>
-  <% if @user.id == current_user.id %>
-      test
-  <% else %>
+  <% unless @user.id == current_user.id %>
       <% if current_user.subscribed_to?(@user.id) %>
-          <%= button_to 'Отписаться', unsubscribe_user_path(@user) %>
+          <%= button_to 'Отписаться', unsubscribe_user_path(@user), :class => 'button' %>
       <% else %>
-          <%= button_to 'Подписаться', subscribe_user_path(@user) %>
+          <%= button_to 'Подписаться', subscribe_user_path(@user), :class => 'button' %>
       <% end %>
   <% end %>
   <h2>Подписчики</h2>
@@ -15,8 +13,8 @@
       <ul id="followers">
         <% @user.followers.each do |follower| %>
           <li>
-            <%= link_to image_tag(follower.avatar.url(:small), :class => 'avatar'), user_path(@user) %>
-            <div class="name"><%= link_to follower.name, user_path(@user) %></div>
+            <%= link_to image_tag(follower.avatar.url(:small), :class => 'avatar'), user_path(follower) %>
+            <div class="name"><%= link_to follower.name, user_path(follower) %></div>
           </li>
         <% end %>
       </ul>
@@ -40,12 +38,15 @@
   </div>
   <div class="content">
     <h1>Стена</h1>
+    <%= form_tag user_posts_path(@user),:class => 'new_post', :multipart => true do |f| %>
+        <%= text_area_tag :message %>
+        <span class="file-wrapper">
+                <%= file_field_tag 'pictures[]' %>
+          <span class="button">ПРИКРЕПИТЬ</span>
+            </span>
+        <%= submit_tag "Отправить", :class => 'button' %>
+    <% end %>
     <div class="inner">
-        <%= form_tag user_posts_path(@user),:class => 'new_post' do |f| %>
-            <%= text_area_tag :message %>
-            <%= submit_tag "Отправить" %>
-        <% end %>
-        
         <%= render @user.wall_entries %>
     </div>
   </div>

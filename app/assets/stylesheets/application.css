@@ -328,22 +328,29 @@ ul li{
     overflow: hidden;
     position: relative;
 }
-.file-wrapper .button {
-    background: url("icon-pencil.png") no-repeat scroll right center #2069B4;
+.button {
     border: 0 none;
     color: #FFFFFF;
     cursor: pointer;
-    font-family: Tahoma;
+    font-family: Tahoma, sans-serif;
     font-size: 12px;
     font-weight: bold;
     display: inline-block;
     height: 33px;
+    background-color: #2069B4;
     line-height: 33px;
-    padding: 0 35px 0 10px;
+    padding: 0 10px;
     text-transform: uppercase;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
+}
+#sidebar form{
+    margin-bottom: 15px;
+}
+.file-wrapper .button {
+    padding-right: 35px;
+    background: url("icon-pencil.png") no-repeat scroll right center #2069B4;
 }
 .file-wrapper input {
     cursor: pointer;
@@ -481,11 +488,27 @@ ul li{
     font-size: 12px;
     margin-bottom: 5px;
 }
+.post .picture{
+    margin-top: 8px;
+}
 .new_post{
-    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    position: relative;
 }
 .new_post textarea{
-    width: 100%;
+    width: 574px;
+    height: 37px;
+    border: 1px solid #d9dbdd;
+    padding: 2px 135px 2px 2px;
+}
+.new_post .file-wrapper{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.new_post .file-wrapper .button{
+    background-image: url("icon-plus.png");
 }
 #followers li{
     margin-bottom: 15px;
