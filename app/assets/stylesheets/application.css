@@ -47,6 +47,12 @@ ul li{
     width: 960px;
     margin: 0 auto;
 }
+#top_panel_wrap{
+    border-bottom: 1px solid #e0e0e1;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
 #top_panel{
     background-color: #2a2e36;
     border-bottom: 1px solid #fff;
@@ -87,15 +93,15 @@ ul li{
     vertical-align: middle;
     background-color: #3a404b;
 }
-#header_wrap{
-    border-top: 1px solid #e0e0e1;
-    border-bottom: 1px solid #eeefef;
-}
 #header{
+    padding-top:52px;
     height: 66px;
-    background: url("logo.png") no-repeat right center;
     text-align: left;
     position: relative;
+}
+#logo{
+    float: right;
+    margin-top: 18px;
 }
 #page_title{
     float: left;
@@ -159,6 +165,7 @@ ul li{
 #main{
     background: url("main-bg.png") repeat-x 0 bottom #f8f9fa;
     border-bottom: 1px solid #e0e0e1;
+    border-top: 1px solid #eeefef;
     padding-top: 20px;
     overflow: hidden;
 }

@@ -7,41 +7,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div id="top_panel">
-      <div class="wrapper">
-        <% if user_signed_in? %>
-          <%= link_to "Моя страница", root_path, :class => "home" %>
-          <span class="sep"></span>
-          <%= link_to "Профиль", edit_user_path(current_user.id), :class => "profile" %>
-          <%= link_to "Выйти", destroy_user_session_path, :method => :delete, :class => "logout", :confirm => "Вы уверены, что хотите покинуть сайт?" %>
-        <% else %>
-          <%= render "devise/links" %>
-        <% end %>
-      </div>
-    </div>
-    <div id="header_wrap">
-        <div id="header" class="wrapper">
-          <% if user_signed_in? %>
-            <div id="tab_controls">
-              <%= link_to "Моя страница", root_path, :class => "tab me"+ (current_page?( :controller => 'home', :action => 'index') ? " active":"") %>
-              <%= link_to "Пользователи", users_path, :class => "tab users"+(current_page?( :controller => 'users', :action => 'index')  ? " active":"") %>
-              <%= link_to "Новости", news_path, :class => "tab news"+(current_page?( :controller => 'home', :action => 'news')  ? " active":"") %>
-            </div>
-          <% else %>
-            <% if controller_name == 'sessions' %>
-              <div id="page_title" class="login">
-                <h1>ВХОД</h1>
-                <div class="hint">Введите ниже учётные данные</div>
-              </div>
+    <div id="top_panel_wrap">
+        <div id="top_panel">
+          <div class="wrapper">
+            <% if user_signed_in? %>
+              <%= link_to "Моя страница", root_path, :class => "home" %>
+              <span class="sep"></span>
+              <%= link_to "Профиль", edit_user_path(current_user.id), :class => "profile" %>
+              <%= link_to "Выйти", destroy_user_session_path, :method => :delete, :class => "logout", :confirm => "Вы уверены, что хотите покинуть сайт?" %>
+            <% else %>
+              <%= render "devise/links" %>
             <% end %>
-            <% if controller_name == 'registrations' %>
-              <div id="page_title" class="login">
-                <h1>РЕГИСТРАЦИЯ</h1>
-                <div class="hint">Регистрация пользователя</div>
-              </div>
-            <% end %>
-          <% end %>
+          </div>
         </div>
+    </div>
+    <div id="header" class="wrapper">
+      <div id="logo">
+        <%=  link_to image_tag("logo.png"), 'http://rezonans.ru' %>
+      </div>
+      <% if user_signed_in? %>
+        <div id="tab_controls">
+          <%= link_to "Моя страница", root_path, :class => "tab me"+ (current_page?( :controller => 'home', :action => 'index') ? " active":"") %>
+          <%= link_to "Пользователи", users_path, :class => "tab users"+(current_page?( :controller => 'users', :action => 'index')  ? " active":"") %>
+          <%= link_to "Новости", news_path, :class => "tab news"+(current_page?( :controller => 'home', :action => 'news')  ? " active":"") %>
+        </div>
+      <% else %>
+        <% if controller_name == 'sessions' %>
+          <div id="page_title" class="login">
+            <h1>ВХОД</h1>
+            <div class="hint">Введите ниже учётные данные</div>
+          </div>
+        <% end %>
+        <% if controller_name == 'registrations' %>
+          <div id="page_title" class="login">
+            <h1>РЕГИСТРАЦИЯ</h1>
+            <div class="hint">Регистрация пользователя</div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
     <div id="main">
         <div class="wrapper">
