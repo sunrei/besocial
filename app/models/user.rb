@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :nick, :status,
                   :first_name, :last_name, :gender, :birthday, :about, :avatar
 
+  self.per_page = 15;
+
   def admin?
     self.role && self.role.name == "admin"
   end

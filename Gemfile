@@ -40,3 +40,5 @@ gem 'jquery-rails'
 gem "paperclip", "~> 3.0"
 gem 'devise'
 gem 'cancan'
+
+gem 'will_paginate', '~> 3.0'

@@ -559,3 +559,9 @@ ul li{
     width: 645px;
     border-radius: 3px;
 }
+#users_form .pagination{
+    float: right;
+}
+.pagination .disabled{
+    display: none;
+}
