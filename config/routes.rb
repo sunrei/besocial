@@ -10,7 +10,8 @@ Besocial::Application.routes.draw do
   post    'posts/:id/comments' => 'comments#create', :as => :post_comments
   delete  'posts/:post_id/comments/:id' => 'comments#destroy', :as => :post_comment
 
-  get "news" => 'home#news'
+  get "profile" => 'users#edit'
+  get "news" => 'users#news'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -61,7 +62,7 @@ Besocial::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+  root :to => 'users#show'
 
   # See how all your routes lay out with "rake routes"
 

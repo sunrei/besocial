@@ -13,7 +13,7 @@
             <% if user_signed_in? %>
               <%= link_to "Моя страница", root_path, :class => "home" %>
               <span class="sep"></span>
-              <%= link_to "Профиль", edit_user_path(current_user.id), :class => "profile" %>
+              <%= link_to "Профиль", profile_path, :class => "profile" %>
               <%= link_to "Выйти", destroy_user_session_path, :method => :delete, :class => "logout", :confirm => "Вы уверены, что хотите покинуть сайт?" %>
             <% else %>
               <%= render "devise/links" %>

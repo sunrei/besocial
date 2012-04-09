@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :get_user, :only => [:index, :new]
-  load_and_authorize_resource :only => [:new, :destroy, :edit, :update]
+  load_and_authorize_resource :only => [:destroy, :edit, :update]
 
   # GET /users
   # GET /users.xml
@@ -19,20 +18,20 @@ class UsersController < ApplicationController
   # GET /users/new.xml
   # GET /users/new.json                                    HTML AND AJAX
   #-------------------------------------------------------------------
-  def new
-    respond_to do |format|
-      format.json { render :json => @user }
-      format.xml  { render :xml => @user }
-      format.html
-    end
-  end
+  #def new
+  #  respond_to do |format|
+  #    format.json { render :json => @user }
+  #    format.xml  { render :xml => @user }
+  #    format.html
+  #  end
+  #end
 
   # GET /users/1
   # GET /users/1.xml
   # GET /users/1.json                                     HTML AND AJAX
   #-------------------------------------------------------------------
   def show
-    @user = User.find(params[:id])
+    @user = params[:id] ? User.find(params[:id]) : current_user
     respond_to do |format|
       format.json { render :json => @user }
       format.xml  { render :xml => @user }
@@ -45,7 +44,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit.json                                HTML AND AJAX
   #-------------------------------------------------------------------
   def edit
-    @user = User.find(params[:id])
+    @user = params[:id] ? User.find(params[:id]) : current_user
     respond_to do |format|
       format.json { render :json => @user }
       format.xml  { render :xml => @user }
@@ -72,23 +71,23 @@ class UsersController < ApplicationController
   # POST /users.xml
   # POST /users.json                                      HTML AND AJAX
   #-----------------------------------------------------------------
-  def create
-    @user = User.new(params[:user])
-
-    if @user.save
-      respond_to do |format|
-        format.json { render :json => @user.to_json, :status => 200 }
-        format.xml  { head :ok }
-        format.html { redirect_to :action => :index }
-      end
-    else
-      respond_to do |format|
-        format.json { render :text => "Could not create user", :status => :unprocessable_entity } # placeholder
-        format.xml  { head :ok }
-        format.html { render :action => :new, :status => :unprocessable_entity }
-      end
-    end
-  end
+  #def create
+  #  @user = User.new(params[:user])
+  #
+  #  if @user.save
+  #    respond_to do |format|
+  #      format.json { render :json => @user.to_json, :status => 200 }
+  #      format.xml  { head :ok }
+  #      format.html { redirect_to :action => :index }
+  #    end
+  #  else
+  #    respond_to do |format|
+  #      format.json { render :text => "Could not create user", :status => :unprocessable_entity } # placeholder
+  #      format.xml  { head :ok }
+  #      format.html { render :action => :new, :status => :unprocessable_entity }
+  #    end
+  #  end
+  #end
 
   def update
     if params[:user][:password].blank?
@@ -140,19 +139,7 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-
-  # Get roles accessible by the current user
-  #----------------------------------------------------
-  def accessible_roles
-    @accessible_roles = Role.accessible_by(current_ability,:read)
+  def news
+    @news = current_user.news
   end
-
-  # Make the current user object available to views
-  #----------------------------------------
-  def get_user
-    @current_user = current_user
-  end
-
-
 end
