@@ -1,0 +1,569 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+@mixin rounded($radius: 3px) {
+    -webkit-border-radius: $radius;
+    -khtml-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+body{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+a{
+    color: #2069b4;
+    outline: none;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+img{
+    border: 0 none;
+}
+h1,h2{
+    margin: 0 0 15px;
+}
+h2{
+    font-weight: bold;
+    font-size: 18px;
+}
+p{
+    margin: 0 0 15px;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    list-style-type: none;
+}
+.wrapper{
+    width: 960px;
+    margin: 0 auto;
+}
+#top_panel_wrap{
+    border-bottom: 1px solid #e0e0e1;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+#top_panel{
+    background-color: #2a2e36;
+    border-bottom: 1px solid #fff;
+    height: 50px;
+    line-height: 50px;
+    text-align: left;
+    a {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 33px;
+        height: 33px;
+        color: #fff;
+        background: {
+            image: url("icon-profile-grey.png");
+            repeat: no-repeat;
+            position: 10px center;
+            color: #3f4551;
+        }
+        font-size: 12px;
+        padding: 0 10px 0 35px;
+        text-decoration: none;
+        @include rounded;
+        
+        &.home    {background-image: url("icon-profile-green.png");}
+        &.profile {background-image: url("icon-settings.png");}
+        &.logout  {background-image: url("icon-profile-grey.png");}
+        &:hover   {background-color: #5d6677;}
+    }
+    .sep{
+        display: inline-block;
+        width: 1px;
+        height: 33px;
+        vertical-align: middle;
+        background:{
+            image: none;
+            color: #3a404b;
+        }
+    }
+}
+
+#header{
+    padding-top:52px;
+    height: 66px;
+    text-align: left;
+    position: relative;
+}
+#logo{
+    float: right;
+    margin-top: 18px;
+}
+#page_title{
+    float: left;
+    margin-top: 12px;
+    min-height: 41px;
+    h1{
+        margin: 0;
+        font-weight: normal;
+        font-size: 20px;
+    }
+    .hint{
+        color: #9498a1;
+        font-size: 11px;
+        font-weight: bold;
+    }
+    &.login{
+        padding-left: 50px;
+        background: url("icon-lock.png") no-repeat 0 center;
+    }
+}
+
+#tab_controls{
+    position: absolute;
+    bottom: -1px;
+    .tab{
+        display: inline-block;
+        border: 1px solid #eeefef;
+        height: 47px;
+        line-height: 47px;
+        font-size: 12px;
+        padding: 0 10px 0 35px;
+        text-decoration: none;
+        color: #9498a1;
+        background: {
+            repeat: no-repeat;
+            position: 10px center;
+        }
+        &.active{font-weight: bold;}
+        &:hover,
+        &.active{
+            color: #2a2e36;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #f8f9fa;
+        }
+    }
+    .me{background-image: url("icon-profile-grey.png");}
+    .users{background-image: url("icon-users.png");}
+    .news{background-image: url("icon-news.png");}
+}
+#footer{
+    color: #b1b3ba;
+    line-height: 20px;
+    padding: 25px 0 20px;
+    font-size: 13px;
+    a{text-decoration: underline;}
+    a:hover{text-decoration: none;}
+}
+#main{
+    background: url("main-bg.png") repeat-x 0 bottom #f8f9fa;
+    border-bottom: 1px solid #e0e0e1;
+    border-top: 1px solid #eeefef;
+    padding-top: 20px;
+    overflow: hidden;
+    .wrapper{margin-bottom: 20px;}
+}
+.user_form{
+    width: 256px;
+    text-align: left;
+    margin: 0 auto;
+    label{
+        font-family: Tahoma, Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        display: block;
+        font-size: 14px;
+        &.gender{
+            font-size: 12px;
+            margin-right: 15px;
+            text-transform: none;
+            display: inline;
+        }
+    }
+    input{
+        border: 1px solid #d9dbdd;
+        width: 244px;
+        height: 38px;
+        line-height: 38px;
+        font-size: 20px;
+        margin-top: 6px;
+        padding: 0 5px;
+        @include rounded;
+    }
+    .field_with_errors{
+        display: inline;
+        label{color: #cf4425;}
+        input{border: 1px solid #ff876f;}
+    }
+    textarea{
+        border: 1px solid #d9dbdd;
+        width: 244px;
+        height: 135px;
+        margin-top: 6px;
+        padding: 5px 5px 0;
+        @include rounded;
+    }
+    select{
+        margin-top: 6px;
+    }
+    input[type="radio"],
+    input[type="checkbox"]{
+        width: auto;
+        height: auto;
+    }
+    input[type="submit"]{
+        font-size: 12px;
+        padding: 0 30px 0 10px;
+        width: auto;
+        background-image: url("submit-arrow.png");
+        border: 0 none;
+    }
+    .field{
+        margin-bottom: 10px;
+    }
+    .hint{
+        font-style: italic;
+        font-size: 12px;
+        text-transform: none;
+        color: #C3C5C6;
+    }
+    .remember_me{
+        label{text-transform: none;display: inline;}
+        label,a{font-size: 11px;}
+    }
+    #error_explanation{
+        margin-bottom: 10px;
+        h2{
+            font-weight: normal;
+            font-size: 14px;
+            color: #cf4425;
+            padding-left: 35px;
+            background: url("icon-error.png") no-repeat 9px center;
+        }
+        ul{
+            padding-left: 35px;
+        }
+        li{
+            color: #cf4425;
+            font-size: 13px;
+            list-style-type: disc;
+        }
+    }
+}
+
+#sidebar{
+    float: left;
+    width: 202px;
+    text-align: left;
+    .avatar{
+        margin-bottom: 20px;
+    }
+    form{
+        margin-bottom: 15px;
+    }
+}
+#content{
+    text-align: left;
+    #sidebar + &{
+        margin-left: 215px;
+    }
+}
+.content{
+    border: 1px solid #eeefef;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+#content h1,
+#sidebar h2{
+    background-color: #3f4551;
+    color: #fff;
+    font-size: 15px;
+    font-weight: normal;
+    padding: 0 15px;
+    margin: 0;
+    height: 40px;
+    line-height: 40px;
+    text-transform: uppercase;
+}
+.inner{
+    padding: 15px 15px 0;
+}
+#edit_user{
+    width: auto;
+    input,
+    textarea{
+        width: 700px;
+    }
+    input[type="radio"],
+    input[type="submit"]{
+        width: auto;
+    }
+    input[type="file"]{
+        width: auto;
+        margin: 0;
+    }
+}
+.avatar{
+    border: 1px solid #EEEFEF;
+}
+.button {
+    border: 0 none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Tahoma, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    height: 33px;
+    background-color: #2069B4;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: right center;
+    line-height: 33px;
+    padding: 0 10px;
+    text-transform: uppercase;
+    @include rounded;
+    &:hover{background-color: #3170C5;}
+}
+.file-wrapper {
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    .button {
+        padding-right: 35px;
+        background-image: url("icon-pencil.png");
+    }
+    input {
+        cursor: pointer;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 100px;
+        filter: alpha(opacity=1);
+        -moz-opacity: 0.01;
+        opacity: 0.01;
+    }
+}
+#users_form{
+    margin-bottom: 15px;
+    input[type="submit"]{
+        height: 27px;
+        line-height:27px;
+        margin-left: 5px;
+        font-size: 11px;
+    }
+    .pagination{
+        float: right;
+    }
+}
+#users_table{
+    width: 100%;
+    margin-bottom: 15px;
+    td{
+        padding: 10px;
+    }
+    thead{
+        background-color: #5D6677;
+        color: #fff;
+        .check,
+        .nick{
+            border-right: 1px solid #747C8A;
+        }
+    }
+    tbody{
+        tr:nth-child(odd){
+            background-color: #F8F9FA;
+        }
+        .check,
+        .nick{
+            border-right: 1px solid #FDFDFE;
+        }
+    }
+    .check{
+        width: 20px;
+    }
+    .avatar{
+        vertical-align: middle;
+        margin-right: 15px;
+    }
+    .actions{
+        float: right;
+        a{
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: {
+                repeat: no-repeat;
+                position: center center;
+            }
+        }
+        .action_edit{
+            background-image: url("icon-pencil-grey.png");
+            margin-right: 5px;
+        }
+        .action_delete{
+            background-image: url("icon-trash.png");
+        }
+    }
+}
+#notice{
+    line-height: 35px;
+    height: 35px;
+    cursor: pointer;
+    display: block;
+    padding: 0 20px;
+    margin-bottom: 15px;
+    color: #06B71C;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #DEFF99;
+    margin-bottom: 15px;
+    border: 2px solid #C4EA58;
+}
+#info{
+    h2{
+        margin-bottom: 2px;
+    }
+    .status{
+        margin-bottom: 5px;
+    }
+    .profile{
+        overflow: hidden;
+        line-height: 25px;
+        margin: 10px 0;
+    }
+    dt{
+        float: left;
+        clear: left;
+        width: 130px;
+        color: #777;
+    }
+    dd{
+        margin-left: 140px;
+    }
+}
+.sep{
+    background: url("separator-bg.png") repeat-x 0 0;
+    height: 5px;
+}
+.post{
+    padding-bottom: 20px;
+    background: url("separator-bg.png") repeat-x 0 bottom;
+    margin-bottom: 15px;
+    overflow: hidden;
+    .author_avatar{
+        float: left;
+        width: 52px;
+        height: 52px;
+    }
+    .post_info{
+        margin-left: 62px;
+        > .time{
+            border-bottom: 1px solid #D9DBDD;
+            padding-bottom: 5px;
+        }
+    }
+    .author_name{
+        font-weight: bold;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    .picture{
+        margin-top: 8px;
+    }
+    .time{
+        color: #b1b3ba;
+        font-size: 11px;
+        margin-top: 5px;
+    }
+}
+.new_post{
+    padding: 15px;
+    background-color: #f8f9fa;
+    position: relative;
+    textarea{
+        width: 574px;
+        height: 37px;
+        border: 1px solid #d9dbdd;
+        padding: 2px 135px 2px 2px;
+        margin-bottom: 5px;
+        @include rounded;
+    }
+    .file-wrapper{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+    .button{
+        background-image: url("icon-plus.png");
+        padding-right: 35px;
+    }
+}
+#followers{
+    li{
+        margin-bottom: 15px;
+        overflow: hidden;
+    }
+    .avatar{
+        float: left;
+        margin: 0;
+    }
+    .name{
+        margin-left: 60px;
+        min-height: 52px;
+        a{
+            vertical-align: middle;
+            display: table-cell;
+            height: 52px;
+            text-decoration: none;
+        }
+    }
+}
+.comment{
+    margin-top: 10px;
+    padding-bottom: 15px;
+    overflow: hidden;
+    background: url("separator-bg.png") repeat-x 0 bottom;
+    .comment_info{
+        margin-left: 62px;
+    }
+}
+.comment_form{
+    margin-top: 10px;
+    text-align: right;
+    .button{
+        line-height: 27px;
+        height: 27px;
+        font-size: 11px;
+    }
+    textarea{
+        border: 1px solid #d9dbdd;
+        padding: 2px;
+        width: 645px;
+        line-height: 16px;
+        height: 32px;
+        margin-bottom: 5px;
+        @include rounded;
+        .news &{
+            width: 860px;
+        }
+    }
+}
+.pagination .disabled{
+    display: none;
+}
