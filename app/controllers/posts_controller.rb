@@ -8,6 +8,7 @@ class PostsController < ApplicationController
         @post.author_id = current_user.id
         if params[:pictures]
           params[:pictures].each do |picture|
+            #accepts_nested_attributes
             @post.pictures.build(:picture => picture)
           end
         end

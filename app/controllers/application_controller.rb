@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   private
 
   def redirect_home
+    # 404
     redirect_to root_path, :notice => "Record not found"
   end
 

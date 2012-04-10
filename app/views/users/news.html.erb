@@ -1,7 +1,6 @@
 <div id="content" class="content news">
   <h1>Новостная лента</h1>
   <div class="inner">
-      <%= render(@news) || "<p>У вас нет новостей.</p>".html_safe %>
-      <%= will_paginate @news %>
+      <%= render 'news_content' %>
   </div>
 </div>

@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   def create
+
+    #validation
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
     @comment = Comment.new
@@ -9,6 +11,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to user_path(@post.user_id)
     else
+      #redirect
       render :template => "users/show"
     end
   end

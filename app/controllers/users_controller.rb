@@ -35,6 +35,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.json { render :json => @user }
       format.xml  { render :xml => @user }
+      format.js { }
       format.html
     end
   end
@@ -111,35 +112,46 @@ class UsersController < ApplicationController
   end
 
   def subscribe
+    #TODO validation
     if current_user.id == params[:id]
       redirect_to user_path(params[:id]), :notice => "You cannot subsribe to yourself"
     else
+      #TODO validation uniquiness
       @subscription = current_user.subscriptions.build(:leader_id => params[:id])
       if @subscription.save
-        flash[:notice] = "You have successfully subscribed to this user."
-        redirect_to user_path(params[:id])
+        respond_to do |format|
+          format.html { redirect_to user_path(params[:id]), :notice => "You have successfully subscribed to this user." }
+          format.js { @user = User.find(params[:id]) }
+        end
       else
-        flash[:error] = "Unable to subscribe."
-        redirect_to user_path(params[:id])
+        redirect_to user_path(params[:id]), :error => "Unable to subscribe."
       end
     end
   end
 
 
   def unsubscribe
-    subscription = current_user.subscriptions.find_by_leader_id(params[:id])
+    subscription = current_user.subscriptions.find_by_leader_id!(params[:id])
     if !subscription
       redirect_to user_path(params[:id]), :notice => "You are not subscribed to this user"
     elsif subscription.destroy
-      flash[:notice] = "You have unsubscribed."
-      redirect_to user_path(params[:id])
+      respond_to do |format|
+        format.html { redirect_to user_path(params[:id]), :notice => "You have unsubscribed." }
+        format.js {
+          @user = User.find(params[:id])
+          render :action => 'subscribe'
+        }
+      end
     else
-      flash[:error] = "Unable to unsubscribe."
-      redirect_to user_path(params[:id])
+      redirect_to user_path(params[:id]), :error => "Unable to unsubscribe."
     end
   end
 
   def news
-    @news = current_user.news.paginate(:page => params[:page], :per_page => 20)
+    @news = current_user.news.paginate(:page => params[:page], :per_page => 2)
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 end

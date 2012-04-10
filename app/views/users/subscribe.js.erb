@@ -1,0 +1,5 @@
+$("#subscribe").html("<%= escape_javascript(render(:partial => 'subscribe')) %>");
+$("#notice")
+        .html("<%= "You have successfully " + (current_page?( :action => 'subscribe') ? "subscribed" : "unsubscribed")  %>")
+        .fadeIn()
+        .delay(3000).fadeOut();

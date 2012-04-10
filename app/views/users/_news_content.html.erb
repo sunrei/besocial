@@ -1,0 +1,2 @@
+<%= render(@news) || "<p>У вас нет новостей.</p>".html_safe %>
+<%= will_paginate @news, :remote => true,  :renderer => 'RemoteLinkRenderer' %>

@@ -1,0 +1,7 @@
+<% unless @user.id == current_user.id %>
+    <% if current_user.subscribed_to?(@user.id) %>
+        <%= button_to 'Отписаться', unsubscribe_user_path(@user), :class => 'button', :remote => true %>
+    <% else %>
+        <%= button_to 'Подписаться', subscribe_user_path(@user), :class => 'button', :remote => true %>
+    <% end %>
+<% end %>

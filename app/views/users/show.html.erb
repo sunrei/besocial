@@ -1,12 +1,8 @@
 <div id="sidebar">
   <%= image_tag @user.avatar.url(:normal), :class => "avatar" %>
-  <% unless @user.id == current_user.id %>
-      <% if current_user.subscribed_to?(@user.id) %>
-          <%= button_to 'Отписаться', unsubscribe_user_path(@user), :class => 'button' %>
-      <% else %>
-          <%= button_to 'Подписаться', subscribe_user_path(@user), :class => 'button' %>
-      <% end %>
-  <% end %>
+  <div id="subscribe">
+    <%= render 'subscribe' %>
+  </div>
   <h2>Подписчики</h2>
   <div class="content inner">
     <% if @user.followers.count > 0 %>

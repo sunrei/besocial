@@ -49,9 +49,11 @@
     <div id="main">
         <div class="wrapper">
           <% if flash[:warning] or flash[:notice] %>
-              <div id="notice" <% if flash[:warning] %>class="warning"<% end %>>
-                <%= flash[:warning] || flash[:notice] %>
-              </div>
+            <div id="notice">
+              <%= flash[:warning] || flash[:notice] %>
+            </div>
+          <% else %>
+            <div id="notice" style="display: none"></div>
           <% end %>
         <%= yield %>
         </div>
