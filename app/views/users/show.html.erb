@@ -47,7 +47,9 @@
         <%= submit_tag "Отправить", :class => 'button' %>
     <% end %>
     <div class="inner">
-        <%= render @user.wall_entries %>
+        <% wall = @user.wall_entries.paginate(:page => params[:page], :per_page => 20) %>
+        <%= render wall %>
+        <%= will_paginate wall %>
     </div>
   </div>
 
