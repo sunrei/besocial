@@ -1,0 +1,8 @@
+<% if @post.errors.empty? %>
+$("#new_post").clearForm();
+$("#content .wall").html("<%= escape_javascript(render(:partial => 'users/wall_content', :locals => {:wall => @wall})) %>")
+<% end %>
+$("#notice")
+        .html("<%= flash[:notice] %>")
+        .fadeIn()
+        .delay(3000).fadeOut();
