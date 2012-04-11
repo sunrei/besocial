@@ -1,4 +1,4 @@
-<div class="post">
+<div class="post" id="post<%= post.id %>">
     <div class="author_avatar">
         <%= link_to image_tag(post.author.avatar.url(:small), :class => 'avatar'), user_path(post.author.id) %>
     </div>
@@ -14,10 +14,13 @@
           | <%= link_to "Удалить запись", user_post_path(post.user.id, post.id), :method => :delete %>
           <% end %>
         </div>
-        <%= render post.comments %>
-        <%= form_tag post_comments_path(post.id), :class => 'comment_form' do |f| %>
-            <%= text_area_tag :comment, '', :size => '78x2' %>
-            <%= submit_tag "Комментировать", :class => 'button' %>
+        <div class="post_comments">
+            <%= render post.comments %>
+        </div>
+        <% new_comment = post.comments.build %>
+        <%= form_for new_comment, :url => post_comments_path(new_comment.post_id), :remote => true do |f| %>
+            <%= f.text_area :comment, :size => '78x2' %>
+            <%= f.submit "Комментировать", :class => 'button' %>
         <% end %>
     </div>
 </div>

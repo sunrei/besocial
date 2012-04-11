@@ -36,7 +36,7 @@
     <h1>Стена</h1>
     <% @new_post = @user.wall_entries.build %>
     <% @new_post.pictures.build %>
-    <%= form_for @new_post, :url => user_posts_path(@user.id) ,:class => 'new_post', :remote => true, :multipart => true do |f| %>
+    <%= form_for @new_post, :url => user_posts_path(@user.id), :class => 'new_post', :remote => true, :multipart => true do |f| %>
         <%= f.text_area :message %>
         <span class="file-wrapper">
           <%= f.fields_for :pictures do |p| %>

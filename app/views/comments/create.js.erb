@@ -1,0 +1,1 @@
+$('#post<%= @comment.post_id%> .post_comments').append("<%= escape_javascript(render(:partial => 'comment', :locals => {:comment => @comment})) %>");
