@@ -14,7 +14,7 @@ class PostsController < ApplicationController
             redirect_to user_path(:id => params[:user_id])
         else
             @user = User.find(params[:user_id])
-            render :template => "users/show"
+            render :template => "users/show_page"
         end
     end
     def destroy

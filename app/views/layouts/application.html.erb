@@ -27,7 +27,7 @@
       </div>
       <% if user_signed_in? %>
         <div id="tab_controls">
-          <%= link_to "Моя страница", root_path, :class => "tab me"+ (current_page?( :controller => 'home', :action => 'index') ? " active":"") %>
+          <%= link_to "Моя страница", root_path, :class => "tab me"+ (current_page?( :controller => 'home', :action => 'index') ? " active":""), :remote => true %>
           <%= link_to "Пользователи", users_path, :class => "tab users"+(current_page?( :controller => 'users', :action => 'index')  ? " active":"") %>
           <%= link_to "Новости", news_path, :class => "tab news"+(current_page?( :controller => 'home', :action => 'news')  ? " active":"") %>
         </div>

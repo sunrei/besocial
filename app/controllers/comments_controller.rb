@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
       redirect_to user_path(@post.user_id)
     else
       #redirect
-      render :template => "users/show"
+      render :template => "users/show_page"
     end
   end
 

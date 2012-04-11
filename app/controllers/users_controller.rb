@@ -6,17 +6,24 @@ class UsersController < ApplicationController
   def index
     @users = User.paginate(:page => params[:page])
     respond_to do |format|
-      format.html
+      format.html{
+        render(:layout => false) if request.xhr?
+      }
     end
   end
 
   # GET /users/1
   #-------------------------------------------------------------------
-  def show
+  def show_page
     @user = params[:id] ? User.find(params[:id]) : current_user
     respond_to do |format|
-      format.js { @wall = @user.wall_entries.paginate(:page => params[:page], :per_page => 2) }
-      format.html
+      format.js {
+        @wall = @user.wall_entries.paginate(:page => params[:page], :per_page => 2)
+        render 'show_page'
+      }
+      format.html{
+        render(:layout => false) if request.xhr?
+      }
     end
   end
 
@@ -87,7 +94,9 @@ class UsersController < ApplicationController
     @news = current_user.news.paginate(:page => params[:page], :per_page => 2)
     respond_to do |format|
       format.js
-      format.html
+      format.html{
+        render(:layout => false) if request.xhr?
+      }
     end
   end
 end

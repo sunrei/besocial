@@ -23,8 +23,9 @@ $(document).ready(function(){
     $("#tab_controls .tab").click(function(){
         if(!$(this).hasClass("active")){
             $("#tab_controls .active").removeClass("active");
-            //TODO: switch tabs
+           $("#main > .wrapper").load($(this).attr('href'));
             $(this).addClass("active");
         }
+        return false;
     });
 })
