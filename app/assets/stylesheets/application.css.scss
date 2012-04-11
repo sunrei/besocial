@@ -497,6 +497,11 @@ ul li{
     padding: 15px;
     background-color: #f8f9fa;
     position: relative;
+    overflow: hidden;
+    #pending_list{
+        float: right;
+        text-align: right;
+    }
     textarea{
         width: 574px;
         height: 37px;
