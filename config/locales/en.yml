@@ -2,4 +2,21 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      top_panel:
+        my_page: "My page"
+        profile: "Profile"
+        logout: "Log out"
+        logout_confirm: "Do you really want to log out?"
+      page_title:
+        login:
+          caption: "LOGIN"
+          hint: "Enter your login details below"
+        registration:
+          caption: "REGISTRATION"
+          hint: "User registration"
+      tab_controls:
+        my_page: "My page"
+        users: "Users"
+        news: "News"

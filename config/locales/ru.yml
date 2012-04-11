@@ -1,0 +1,19 @@
+ru:
+  layouts:
+    application:
+      top_panel:
+        my_page: "Моя страница"
+        profile: "Профиль"
+        logout: "Выйти"
+        logout_confirm: "Вы уверены, что хотите покинуть сайт?"
+      page_title:
+        login:
+          caption: "ВХОД"
+          hint: "Введите ниже учётные данные"
+        registration:
+          caption: "РЕГИСТРАЦИЯ"
+          hint: "Регистрация пользователя"
+      tab_controls:
+        my_page: "Моя страница"
+        users: "Пользователи"
+        news: "Новости"

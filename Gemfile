@@ -43,3 +43,5 @@ gem 'cancan'
 
 gem 'will_paginate', '~> 3.0'
 gem "validates_existence", ">= 0.4"
+
+gem 'rails-i18n'

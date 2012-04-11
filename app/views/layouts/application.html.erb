@@ -11,10 +11,10 @@
         <div id="top_panel">
           <div class="wrapper">
             <% if user_signed_in? %>
-              <%= link_to "Моя страница", root_path, :class => "home" %>
+              <%= link_to t('.top_panel.my_page'), root_path, :class => "home" %>
               <span class="sep"></span>
-              <%= link_to "Профиль", profile_path, :class => "profile" %>
-              <%= link_to "Выйти", destroy_user_session_path, :method => :delete, :class => "logout", :confirm => "Вы уверены, что хотите покинуть сайт?" %>
+              <%= link_to t('.top_panel.profile'), profile_path, :class => "profile" %>
+              <%= link_to t('.top_panel.logout'), destroy_user_session_path, :method => :delete, :class => "logout", :confirm => t('.top_panel.logout_confirm') %>
             <% else %>
               <%= render "devise/links" %>
             <% end %>
@@ -27,21 +27,21 @@
       </div>
       <% if user_signed_in? %>
         <div id="tab_controls">
-          <%= link_to "Моя страница", root_path, :class => "tab me"+ (current_page?( :controller => 'home', :action => 'index') ? " active":""), :remote => true %>
-          <%= link_to "Пользователи", users_path, :class => "tab users"+(current_page?( :controller => 'users', :action => 'index')  ? " active":"") %>
-          <%= link_to "Новости", news_path, :class => "tab news"+(current_page?( :controller => 'home', :action => 'news')  ? " active":"") %>
+          <%= link_to t('.tab_controls.my_page'), root_path, :class => "tab me"+ (current_page?( :controller => 'home', :action => 'index') ? " active":""), :remote => true %>
+          <%= link_to t('.tab_controls.users'), users_path, :class => "tab users"+(current_page?( :controller => 'users', :action => 'index')  ? " active":"") %>
+          <%= link_to t('.tab_controls.news'), news_path, :class => "tab news"+(current_page?( :controller => 'home', :action => 'news')  ? " active":"") %>
         </div>
       <% else %>
         <% if controller_name == 'sessions' %>
           <div id="page_title" class="login">
-            <h1>ВХОД</h1>
-            <div class="hint">Введите ниже учётные данные</div>
+            <h1><%= t('.page_title.login.caption') %></h1>
+            <div class="hint"><%= t('.page_title.login.hint') %></div>
           </div>
         <% end %>
         <% if controller_name == 'registrations' %>
           <div id="page_title" class="login">
-            <h1>РЕГИСТРАЦИЯ</h1>
-            <div class="hint">Регистрация пользователя</div>
+            <h1><%= t('.page_title.registration.caption') %></h1>
+            <div class="hint"><%= t('.page_title.registration.hint') %></div>
           </div>
         <% end %>
       <% end %>
