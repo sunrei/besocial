@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def show
     @user = params[:id] ? User.find(params[:id]) : current_user
     respond_to do |format|
-      format.js { }
+      format.js { @wall = @user.wall_entries.paginate(:page => params[:page], :per_page => 2) }
       format.html
     end
   end

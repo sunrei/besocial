@@ -42,10 +42,8 @@
             </span>
         <%= submit_tag "Отправить", :class => 'button' %>
     <% end %>
-    <div class="inner">
-        <% wall = @user.wall_entries.paginate(:page => params[:page], :per_page => 20) %>
-        <%= render wall %>
-        <%= will_paginate wall %>
+    <div class="inner wall">
+        <%= render :partial => 'wall_content', :locals => {:wall => @user.wall_entries.paginate(:page => params[:page], :per_page => 2)} %>
     </div>
   </div>
 

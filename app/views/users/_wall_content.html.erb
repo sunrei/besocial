@@ -1,0 +1,2 @@
+<%= render(wall) || "<p>На вашей стене нет записей.</p>".html_safe %>
+<%= will_paginate wall, :remote => true,  :renderer => 'RemoteLinkRenderer' %>
