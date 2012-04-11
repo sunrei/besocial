@@ -14,12 +14,11 @@ class UsersController < ApplicationController
 
   # GET /users/1
   #-------------------------------------------------------------------
-  def show_page
+  def show
     @user = params[:id] ? User.find(params[:id]) : current_user
     respond_to do |format|
       format.js {
-        @wall = @user.wall_entries.paginate(:page => params[:page], :per_page => 2)
-        render 'show_page'
+        @wall = @user.wall_entries.paginate(:page => params[:page], :per_page => 15)
       }
       format.html{
         render(:layout => false) if request.xhr?
@@ -91,7 +90,7 @@ class UsersController < ApplicationController
   end
 
   def news
-    @news = current_user.news.paginate(:page => params[:page], :per_page => 2)
+    @news = current_user.news.paginate(:page => params[:page], :per_page => 15)
     respond_to do |format|
       format.js
       format.html{
