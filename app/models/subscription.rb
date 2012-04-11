@@ -2,7 +2,7 @@ class Subscription < ActiveRecord::Base
   belongs_to :user
   belongs_to :leader, :class_name => "User"
 
-  validates_presence_of :user_id,:leader_id
+  validates_presence_of :user_id, :leader_id
   validates_existence_of :leader
   validates_uniqueness_of :leader_id, :scope => :user_id
   validate :cannot_subscribe_to_self

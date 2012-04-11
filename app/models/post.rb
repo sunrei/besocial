@@ -13,4 +13,6 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :pictures
 
   default_scope order("updated_at desc")
+
+
 end

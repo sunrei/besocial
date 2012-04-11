@@ -44,4 +44,4 @@ $(document).ready(function(){
         $(this).parent().remove();
         return false;
     });
-})
+});

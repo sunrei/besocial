@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(:version => 20120411000228) do
   add_index "subscriptions", ["user_id", "leader_id"], :name => "index_subscriptions_on_user_id_and_leader_id", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "",   :null => false
-    t.string   "encrypted_password",     :default => "",   :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -61,16 +61,16 @@ ActiveRecord::Schema.define(:version => 20120411000228) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.integer  "role_id"
-    t.string   "nick",                   :default => "",   :null => false
-    t.string   "status",                 :default => "",   :null => false
-    t.string   "first_name",             :default => "",   :null => false
-    t.string   "last_name",              :default => "",   :null => false
-    t.boolean  "gender",                 :default => true, :null => false
+    t.string   "nick",                   :default => "", :null => false
+    t.string   "status",                 :default => "", :null => false
+    t.string   "first_name",             :default => "", :null => false
+    t.string   "last_name",              :default => "", :null => false
+    t.boolean  "gender"
     t.date     "birthday"
-    t.text     "about",                  :default => "",   :null => false
+    t.text     "about",                  :default => "", :null => false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
