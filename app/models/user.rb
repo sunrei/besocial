@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :nick, :status,
                   :first_name, :last_name, :gender, :birthday, :about, :avatar
 
+  validates_length_of :first_name, :last_name, :minimum => 1, :too_short => "should be at least 1 character"
+
   self.per_page = 15
 
   def admin?

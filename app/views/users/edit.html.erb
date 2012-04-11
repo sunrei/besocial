@@ -9,7 +9,15 @@
     <div id="content" class="content">
       <h1>Редактировать профиль</h1>
       <div class="inner">
-
+        <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
         <div class="field"><%= f.label :nick, "Ник" %>
           <%= f.text_field :nick %></div>
 
