@@ -7,15 +7,16 @@ class ApplicationController < ActionController::Base
     flash[:error] = exception.message
     redirect_to root_url
   end
-  rescue_from ActiveRecord::RecordNotFound, :with => :redirect_home
-  rescue_from ActionController::RoutingError, :with => :render_404
+  #rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+  #rescue_from ActionController::RoutingError, :with => :render_404
+  rescue_from ActiveRecord::RecordNotFound, ActionController::RoutingError, :with => :render_404
 
   private
 
-  def redirect_home
+  #def redirect_home
     # 404
-    redirect_to root_path, :notice => "Record not found"
-  end
+    #redirect_to root_path, :notice => "Record not found"
+  #end
 
   def render_404(exception = nil)
     if exception

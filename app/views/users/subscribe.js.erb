@@ -1,5 +1,7 @@
+<% if @subscription.errors.empty? %>
 $("#subscribe").html("<%= escape_javascript(render(:partial => 'subscribe')) %>");
+<% end %>
 $("#notice")
-        .html("<%= "You have successfully " + (current_page?( :action => 'subscribe') ? "subscribed" : "unsubscribed")  %>")
+        .html("<%= @subscription.errors.any? ? (@subscription.errors.full_messages * ',') : ("You have successfully " + (@subscribed ? "subscribed" : "unsubscribed") + " to this user.") %>")
         .fadeIn()
         .delay(3000).fadeOut();

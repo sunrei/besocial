@@ -1,10 +1,10 @@
 Besocial::Application.routes.draw do
   devise_for :users
 
-  resources :users do
-     resources :posts
+  resources :users, :except => [:new, :create] do
      post 'subscribe', :on => :member
      post 'unsubscribe', :on => :member
+     resources :posts, :only => [:create, :destroy]
   end
 
   post    'posts/:id/comments' => 'comments#create', :as => :post_comments

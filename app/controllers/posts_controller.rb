@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-    def show
-    end
     def create
         @post = Post.new
         @post.message = params[:message]
